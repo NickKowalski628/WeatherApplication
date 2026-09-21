@@ -10,7 +10,7 @@ public class WeatherService
 
     public async Task TestApiCall()
     {
-        String apiKey = "REDACTED";
+        String apiKey = Environment.GetEnvironmentVariable("OPENWEATHER_API_KEY");
         String url = $"https://api.openweathermap.org/data/2.5/forecast?zip={zip},us&appid={apiKey}&units=imperial";
 
         try
