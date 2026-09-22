@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 namespace WeatherApp;
 class Program
 {
@@ -6,10 +7,23 @@ class Program
     {
         WeatherService service = new WeatherService();
         bool running = true;
+        
+        Console.WriteLine("Hello and welcome to my weather application!");
+        {
+
+        bool success = false;
+        while(!success)
+        {
+            Console.WriteLine("Please enter your zipcode: ");
+            String NewZip = Console.ReadLine();
+            success = service.setZip(NewZip);
+        }
+        
+        }
+
 
         while (running)
         {
-            Console.WriteLine("Hello and welcome to my weather application!");
             Console.WriteLine("1.Get forecast");
             Console.WriteLine("2.Change zip code");
             Console.WriteLine("3.Exit");
@@ -19,10 +33,15 @@ class Program
             switch (choice)
             {
                 case "1":
-                    await service.TestApiCall();
-                    break;
+                    {
+                        Console.WriteLine($"Getting forecase for Zipcode: {service.GetZip()}");
+                        await service.TestApiCall();
+                        break;
+                    }
 
                 case "2":
+                    {
+
                     Console.WriteLine($"Your current zipcode is:{service.GetZip()}");
                     bool success = false;
                     while (!success)
@@ -31,18 +50,19 @@ class Program
                         String newZip = Console.ReadLine();
                         success = service.setZip(newZip);
 
-
-
                     }
                     break;
-
+                    }
 
 
                 case "3":
+                    {
+
                     //exit
                     Console.WriteLine("Thanks for using me, goodbye!");
                     running = false;
                     break;
+                    }
                 default:
                     Console.WriteLine("Invalid choice, please try again");
                     break;
@@ -51,3 +71,5 @@ class Program
         }
     }
 }
+
+ */
