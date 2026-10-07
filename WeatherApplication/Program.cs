@@ -33,7 +33,7 @@ class Program
             {
                 case "1":
                     {
-                        Console.WriteLine($"Getting forecase for Zipcode: {service.GetZip()}");
+                        Console.WriteLine($"Getting forecast for Zipcode: {service.GetZip()}");
                         await service.TestApiCall();
                         break;
                     }
