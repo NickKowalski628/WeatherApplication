@@ -1,5 +1,4 @@
-﻿/*
-using System;
+﻿using System;
 namespace WeatherApp;
 class Program
 {
@@ -72,4 +71,4 @@ class Program
     }
 }
 
- */
+ 

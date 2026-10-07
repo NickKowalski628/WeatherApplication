@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO.Compression;
+using System.Text.Json;
+using static WeatherApplication.ForecastModels;
 
 namespace WeatherApp;
 
@@ -17,8 +19,14 @@ public class WeatherService
         {
             using HttpClient client = new HttpClient();
             string response = await client.GetStringAsync(url);
+            ForecastResponse? weatherforecast = JsonSerializer.Deserialize<ForecastResponse>(response);
+            Console.WriteLine($"Weather For: {weatherforecast?.city?.name}");
+            for (int i = 0; i < weatherforecast.list.Count; i++)
+            {
+                Console.WriteLine($"{weatherforecast?.list?[i]?.dt_txt}: {weatherforecast?.list?[i]?.main?.temp}F");
 
-            Console.WriteLine(response);
+            }
+
 
         }
         catch (HttpRequestException ex)
